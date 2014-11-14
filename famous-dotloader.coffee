@@ -49,8 +49,6 @@ FView.ready ->
 
       sizeNode = node.add sizeMod
       factor = @_D / @_amount
-      console.log 'Amount', @_amount
-      console.log 'factor', factor
       for i in [0...@_amount]
         diam = Math.round factor * (@_amount - i)
         radius = Math.round diam / 2
@@ -64,24 +62,23 @@ FView.ready ->
           align: [.5, .5]
           origin: [.5, .5]
           size: [diam, @_height - (15 * @_height / 100) - i]
-          transform: -> do (joint) ->
+          transform: do (joint) -> ->
             Transform.rotateZ joint.angle.get()
         joint.counter = 2
         @joints.push joint
         sizeNode
           .add joint.mod
           .add joint
-        console.log @joints
 
     _rotateChain: ->
-      console.log @joints
       Engine.on 'prerender', =>
         for i in [0...@_amount]
-          if (not @joints[i].angle.isActive()) and (not @joints[@_amount - 1].angle.isActive())
+          unless @joints[i].angle.isActive() or @joints[@_amount - 1].angle.isActive()
             angle = Math.PI * @joints[i].counter
             @joints[i].angle.set angle,
               duration: 1500 + i * @_delay
               curve: 'easeInOut'
             @joints[i].counter += 2
+
 
   FView.registerView 'DotLoader', DotLoader
