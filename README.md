@@ -17,6 +17,15 @@ Template in Jade (Blaze works fine too :wink:):
     |
 ```
 
+Available attributes and their defaults are:
+* `height`: 75.
+* `dotsNumber`: 7
+* `dotD`: 10
+* `delay`: 150
+* `isBgVisible`: true
+* `bgClass`: 'dotloader-background'
+* `dotClass`: 'dotloader-dots'
+
 And add the CSS:
 ```css
 .dotloader-background' {

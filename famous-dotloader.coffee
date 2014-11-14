@@ -13,8 +13,7 @@ FView.ready ->
       dotsNumber: 7
       dotD: 10
       delay: 150
-      bg:
-        visible: true
+      isBgVisible: true
       bgClass: 'dotloader-background'
       dotClass: 'dotloader-dots'
 
@@ -30,7 +29,7 @@ FView.ready ->
       @_delay = @options.delay
 
       # If icon background is set to be visible, show it
-      @_createIconBg() if @options.bg.visible
+      @_createIconBg() if @options.isBgVisible
 
       # Create a chain of dots and then loop the rotation
       @_createChain()
