@@ -8,7 +8,7 @@ FView.ready ->
   Transitionable = famous.transitions.Transitionable
 
   class DotLoader extends View
-    DEFAULT_OPTIONS:
+    @DEFAULT_OPTIONS:
       height: 75
       dotsNumber: 7
       dotD: 10
@@ -18,7 +18,6 @@ FView.ready ->
       dotClass: 'dotloader-dots'
 
     constructor: (@options) ->
-      @constructor.DEFAULT_OPTIONS = @DEFAULT_OPTIONS
       super @options
 
       # Init our vars
@@ -45,7 +44,7 @@ FView.ready ->
       node = new RenderNode
       @add node
 
-      sizeMod = new Modifier size: [this._height, this._height]
+      sizeMod = new Modifier size: [@_height, @_height]
 
       sizeNode = node.add sizeMod
       factor = @_D / @_amount
@@ -63,7 +62,7 @@ FView.ready ->
           origin: [.5, .5]
           size: [diam, @_height - (15 * @_height / 100) - i]
           transform: do (joint) -> ->
-            Transform.rotateZ joint.angle.get()
+            Transform.moveThen [0,0,1], (Transform.rotateZ joint.angle.get())
         joint.counter = 2
         @joints.push joint
         sizeNode
@@ -73,12 +72,11 @@ FView.ready ->
     _rotateChain: ->
       Engine.on 'prerender', =>
         for i in [0...@_amount]
-          unless @joints[i].angle.isActive() or @joints[@_amount - 1].angle.isActive()
+          unless @joints[i].angle.isActive() or @joints[@_amount-1].angle.isActive()
             angle = Math.PI * @joints[i].counter
             @joints[i].angle.set angle,
               duration: 1500 + i * @_delay
               curve: 'easeInOut'
             @joints[i].counter += 2
-
 
   FView.registerView 'DotLoader', DotLoader

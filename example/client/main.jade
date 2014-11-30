@@ -1,0 +1,81 @@
+head
+  title fview-dotloader demo
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, maximum-scale=1, user-scalable=no')
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black')
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='mobile-web-app-capable', content='yes')
+body
+  +famousContext id='mainCtx'
+    +gridExample
+
+template(name='gridExample')
+  +Scrollview id='scrollview'
+    +FlexGrid itemSize='[400,160]' marginTop='10' gutterCol='10' gutterRow='10'
+      +example1
+      +example2
+      +example3
+      +example4
+      +example5
+      +example6
+
+template(name='example1')
+  +StateModifier align='[.5,.5]' origin='[.5,.5]'
+    +Surface class='label'
+      p Default theme modified
+      pre +DotLoader height='100' dotD='20'
+    +StateModifier translate='[0,0,100]'
+      +StateModifier align='[.5,.94]' origin='[.5,1]'
+        +DotLoader height='100' dotD='20'
+          | 
+
+template(name='example2')
+  +StateModifier align='[.5,.5]' origin='[.5,.5]'
+    +Surface class='label'
+      p Exagerated dot size
+      pre +DotLoader height='100' dotD='40'
+    +StateModifier translate='[0,0,100]'
+      +StateModifier align='[.5,.9]' origin='[.5,.9]'
+        +DotLoader height='100' dotD='40'
+          | 
+
+template(name='example3')
+  +StateModifier align='[.5,.5]' origin='[.5,.5]'
+    +Surface class='label'
+      p Massive number of dots
+      pre +DotLoader dotsNumber='30'
+    +StateModifier translate='[0,0,100]'
+      +StateModifier align='[.5,.9]' origin='[.5,.9]'
+        +DotLoader height='100' dotD='20' dotsNumber='30'
+          | 
+
+template(name='example4')
+  +StateModifier align='[.5,.5]' origin='[.5,.5]'
+    +Surface class='label'
+      p No background
+      pre +DotLoader isBgVisible='false'
+    +StateModifier translate='[0,0,100]'
+      +StateModifier align='[.5,.9]' origin='[.5,.9]'
+        +DotLoader height='100' dotD='20' isBgVisible='false'
+          | 
+
+template(name='example5')
+  +StateModifier align='[.5,.5]' origin='[.5,.5]'
+    +Surface class='label'
+      p Custom theme 1
+      pre +DotLoader bgClass='theme1-bg' dotClass='theme1-dots'
+    +StateModifier translate='[0,0,100]'
+      +StateModifier align='[.5,.9]' origin='[.5,.9]'
+        +DotLoader height='100' dotD='20' bgClass='theme1-bg' dotClass='theme1-dots'
+          | 
+
+template(name='example6')
+  +StateModifier align='[.5,.5]' origin='[.5,.5]'
+    +Surface class='label'
+      p Custom theme 2
+      pre +DotLoader bgClass='theme2-bg' dotClass='theme2-dots'
+    +StateModifier translate='[0,0,100]'
+      +StateModifier align='[.5,.9]' origin='[.5,.9]'
+        +DotLoader height='100' dotD='16' bgClass='theme2-bg' dotClass='theme2-dots'
+          | 

@@ -5,6 +5,8 @@ This plugin brings animated dot loader in Blaze or Jade templating for [Meteor.j
 
 This loader for [famo.us](http://famo.us) is inspired from the work of [LeXXiK](https://github.com/LeXXik) and [Tony Alves](https://github.com/talves) in [Famousco.de](http://famousco.de/2014/07/animated-dots-icon/).
 
+**demo**: [fview-dotloader](http://fview-dotloader.meteor.com/)
+
 ## Usage
 ```bash
 meteor add pierreeric:famous-dotloader

@@ -1,7 +1,7 @@
 Package.describe({
   name: 'pierreeric:fview-dotloader',
   summary: 'Animated dot loader for Meteor\'s famous-views.',
-  version: '0.1.0',
+  version: '0.1.1',
   git: 'https://github.com/PEM--/fview-dotloader'
 });
 
@@ -13,6 +13,6 @@ Package.onUse(function(api) {
   api.export('DotLoader', 'client');
   api.addFiles(
     [
-      'famous-dotloader.coffee',
+      'fview-dotloader.coffee',
     ], 'client');
 });
