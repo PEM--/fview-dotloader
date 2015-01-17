@@ -9,7 +9,7 @@ This loader for [famo.us](http://famo.us) is inspired from the work of [LeXXiK](
 
 ## Usage
 ```bash
-meteor add pierreeric:famous-dotloader
+meteor add pierreeric:fview-dotloader
 ```
 
 Template in Jade (Blaze works fine too :wink:):
